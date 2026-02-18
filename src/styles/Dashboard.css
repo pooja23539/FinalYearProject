@@ -1,0 +1,727 @@
+/* Dashboard container */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dashboard-header h1 {
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Dashboard layout */
+.dashboard-layout {
+  display: flex;
+  flex: 1;
+  gap: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Sidebar buttons */
+.sidebar-button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.sidebar-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+/* Home button special styling */
+.home-button {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.home-button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  background: #b91c1c;
+}
+
+/* Content area */
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Form card - matching login card style */
+.form-card {
+  background: #ffffff;
+  padding: 2.5rem;
+  width: 360px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.form-card h3 {
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+/* Form - matching login form style */
+.teacher-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input wrapper */
+.form-group {
+  width: 100%;
+}
+
+/* Inputs - matching login inputs */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Error message - matching login error */
+.error-message {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: -5px;
+}
+
+/* Success message */
+.success-message {
+  color: #10b981;
+  font-size: 13px;
+  margin-top: -5px;
+}
+
+/* Submit button - matching login button */
+.submit-button {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  background: #4338ca;
+}
+
+.submit-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Students section */
+.students-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+
+.students-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Table container */
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Students table */
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table th {
+  background: #4f46e5;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.students-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.students-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Status badge */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Attendance buttons */
+.attendance-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.attendance-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.present-btn {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.present-btn:hover {
+  background: #059669;
+}
+
+.absent-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.absent-btn:hover {
+  background: #b91c1c;
+}
+
+.leave-btn {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.leave-btn:hover {
+  background: #d97706;
+}
+
+.attendance-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* No students message */
+.no-students {
+  color: #ffffff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Teachers table section */
+.teachers-table-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.teachers-table-section h4 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Teachers table */
+.teachers-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.teachers-table th {
+  background: #6366f1;
+  color: #ffffff;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.teachers-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.teachers-table tr:hover {
+  background: #f9fafb;
+}
+
+/* No teachers message */
+.no-teachers {
+  color: #6b7280;
+  text-align: center;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Subjects section */
+.subjects-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+}
+
+.subjects-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Subjects table */
+.subjects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.subjects-table th {
+  background: #8b5cf6;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.subjects-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.subjects-table tr:hover {
+  background: #f9fafb;
+}
+
+/* No subjects message */
+.no-subjects {
+  color: #ffffff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Search container */
+.search-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Filter container */
+.filter-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+  background: #ffffff;
+  min-width: 150px;
+}
+
+.filter-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Attendance section */
+.attendance-section {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.attendance-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Attendance table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th {
+  background: #dc2626;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.attendance-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.attendance-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Status badges for attendance */
+.status-badge.present {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.absent {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-badge.leave {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* No attendance message */
+.no-attendance {
+  color: #ffffff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Allocation section */
+.allocation-section {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.allocations-table-section {
+  margin-top: 2rem;
+}
+
+.allocations-table-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Allocations table */
+.allocations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.allocations-table th {
+  background: #059669;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.allocations-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.allocations-table tr:hover {
+  background: #f9fafb;
+}
+
+/* No allocations message */
+.no-allocations {
+  color: #ffffff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Subject warning */
+.subject-warning {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid #dc2626;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subject-warning p {
+  color: #dc2626;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Student section */
+.student-section {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.students-table-section {
+  margin-top: 2rem;
+}
+
+.students-table-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* User section */
+.user-section {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.users-table-section {
+  margin-top: 2rem;
+}
+
+.users-table-section h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Users table */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th {
+  background: #7c3aed;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.users-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.users-table tr:hover {
+  background: #f9fafb;
+}
+
+/* No users message */
+.no-users {
+  color: #ffffff;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Edit functionality */
+.edit-checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.edit-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.edit-select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  background: #ffffff;
+}
+
+.edit-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.update-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.update-btn:hover {
+  background: #059669;
+}
+
+.update-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 8px;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+.delete-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.unblock-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-left: 8px;
+}
+
+.unblock-btn:hover {
+  background: #059669;
+}
+
+.unblock-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
