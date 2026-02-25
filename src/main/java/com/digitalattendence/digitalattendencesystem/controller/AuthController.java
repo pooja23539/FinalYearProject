@@ -1,4 +1,6 @@
 package com.digitalattendence.digitalattendencesystem.controller;
+import com.digitalattendence.digitalattendencesystem.dto.LoginResponse;
+import com.digitalattendence.digitalattendencesystem.repository.UserRepository;
 import com.digitalattendence.digitalattendencesystem.service.CustomUserDetailsService;
 import com.digitalattendence.digitalattendencesystem.config.JwtUtil;
 import com.digitalattendence.digitalattendencesystem.dto.LoginRequest;
@@ -29,6 +31,9 @@ public class AuthController {
 
     @Autowired
     private JwtUtil jwtUtil;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
@@ -68,9 +73,12 @@ public class AuthController {
         // Generate JWT token for active users
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(Map.of(
-                "message", "Login successful",
-                "token", jwt
-        ));
+        // Fetch user from DB to get the role
+        com.digitalattendence.digitalattendencesystem.model.User user =
+                userRepository.findByUsername(loginRequest.getUsername()).orElse(null);
+
+        String roleStr = (user != null && user.getRole() != null) ? user.getRole().getCode() : "";
+
+        return ResponseEntity.ok(new LoginResponse(jwt, roleStr, "Login successful"));
     }
 }

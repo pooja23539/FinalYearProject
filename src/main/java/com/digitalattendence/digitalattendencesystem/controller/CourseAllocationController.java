@@ -42,40 +42,39 @@ public class CourseAllocationController {
     }
     // CREATE new allocation
     @PostMapping
-    public ResponseEntity<CourseAllocation> create(@RequestBody CourseAllocation allocation) {
+    public ResponseEntity<?> create(@RequestBody CourseAllocation allocation) {
 
-        // Fetch and set Faculty by ID
-        if (allocation.getFaculty() != null && allocation.getFaculty().getId() != null) {
-            allocation.setFaculty(
-                    facultyRepository.findById(allocation.getFaculty().getId()).orElse(null)
-            );
-        }
+        if (allocation.getFaculty() == null || allocation.getFaculty().getId() == null)
+            return ResponseEntity.badRequest().body("Faculty ID is required");
 
-        // Fetch and set Subject by ID
-        if (allocation.getSubject() != null && allocation.getSubject().getId() != null) {
-            allocation.setSubject(
-                    subjectRepository.findById(allocation.getSubject().getId()).orElse(null)
-            );
-        }
+        if (allocation.getSubject() == null || allocation.getSubject().getId() == null)
+            return ResponseEntity.badRequest().body("Subject ID is required");
 
-        // Fetch and set Semester by ID
-        if (allocation.getSemester() != null && allocation.getSemester().getId() != null) {
-            allocation.setSemester(
-                    semesterRepository.findById(allocation.getSemester().getId()).orElse(null)
-            );
-        }
+        if (allocation.getSemester() == null || allocation.getSemester().getId() == null)
+            return ResponseEntity.badRequest().body("Semester ID is required");
 
-        // Fetch and set Teacher by ID
-        if (allocation.getTeacher() != null && allocation.getTeacher().getId() != null) {
-            allocation.setTeacher(
-                    teacherRepository.findById(allocation.getTeacher().getId()).orElse(null)
-            );
-        }
+        if (allocation.getTeacher() == null || allocation.getTeacher().getId() == null)
+            return ResponseEntity.badRequest().body("Teacher ID is required");
 
-        // Save the allocation and return
+        Faculty faculty = facultyRepository.findById(allocation.getFaculty().getId())
+                .orElseThrow(() -> new RuntimeException("Invalid Faculty ID"));
+
+        Subject subject = subjectRepository.findById(allocation.getSubject().getId())
+                .orElseThrow(() -> new RuntimeException("Invalid Subject ID"));
+
+        Semester semester = semesterRepository.findById(allocation.getSemester().getId())
+                .orElseThrow(() -> new RuntimeException("Invalid Semester ID"));
+
+        Teacher teacher = teacherRepository.findById(allocation.getTeacher().getId())
+                .orElseThrow(() -> new RuntimeException("Invalid Teacher ID"));
+
+        allocation.setFaculty(faculty);
+        allocation.setSubject(subject);
+        allocation.setSemester(semester);
+        allocation.setTeacher(teacher);
+
         return ResponseEntity.ok(courseAllocationRepository.save(allocation));
     }
-
     // UPDATE allocation
     @PutMapping("/{id}")
     public ResponseEntity<CourseAllocation> update(@PathVariable Long id, @RequestBody CourseAllocation allocationDetails) {
