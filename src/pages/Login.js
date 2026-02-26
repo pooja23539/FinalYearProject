@@ -32,7 +32,8 @@ const Login = () => {
 
       login({
         accessToken: res.data.token,
-        refreshToken: res.data.token // Using same token for both since backend only returns one
+        refreshToken: res.data.token, // Using same token for both since backend only returns one
+        role: res.data.role
       });
 
       navigate("/dashboard");
