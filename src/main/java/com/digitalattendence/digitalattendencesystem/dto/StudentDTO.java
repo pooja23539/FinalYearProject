@@ -10,7 +10,7 @@ public class StudentDTO {
 
     private Long userId;          // User.id is Long ✅
     private Long programId;    // FIXED ✅
-    private int semesterId;   // FIXED ✅
+    private Long semesterId;   // FIXED ✅
 
     // ===== GETTERS =====
     public String getName() {
@@ -41,9 +41,11 @@ public class StudentDTO {
         return programId;
     }
 
-    public int getSemesterId() {
+    public Long getSemesterId() {
         return semesterId;
     }
+
+
 
     // ===== SETTERS =====
     public void setName(String name) {
@@ -74,7 +76,7 @@ public class StudentDTO {
         this.programId = programId;
     }
 
-    public void setSemesterId(Integer semesterId) {
+    public void setSemesterId(Long semesterId) {
         this.semesterId = semesterId;
     }
 }

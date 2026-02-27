@@ -29,6 +29,14 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody StudentDTO dto) {
 
+        if (dto.getUserId() == null ||
+                dto.getProgramId() == null ||
+                dto.getSemesterId() == null) {
+
+            return ResponseEntity.badRequest()
+                    .body(null);
+        }
+
         User user = userRepository.findById(dto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
@@ -50,7 +58,6 @@ public class StudentController {
 
         return ResponseEntity.ok(studentRepository.save(student));
     }
-
     // ✅ GET ALL STUDENTS
     @GetMapping
     public ResponseEntity<List<Student>> getAllStudents() {

@@ -25,5 +25,14 @@ public class ProgramController {
         List<Program> programs = programRepository.findAll();
         return ResponseEntity.ok(programs);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteProgram(@PathVariable Long id) {
+        if (!programRepository.existsById(id)) {
+            return ResponseEntity.badRequest().body("Program not found");
+        }
+
+        programRepository.deleteById(id);
+        return ResponseEntity.ok("Program deleted successfully");
+    }
 }
 

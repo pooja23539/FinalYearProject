@@ -5,12 +5,16 @@ import com.digitalattendence.digitalattendencesystem.model.Teacher;
 import com.digitalattendence.digitalattendencesystem.model.User;
 import com.digitalattendence.digitalattendencesystem.repository.TeacherRepository;
 import com.digitalattendence.digitalattendencesystem.repository.UserRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.security.Principal;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/teachers")
+
 public class TeacherController {
 
     private final TeacherRepository teacherRepo;
@@ -37,7 +41,19 @@ public class TeacherController {
 
         return teacherRepo.save(teacher);
     }
+    @GetMapping("/current")
+    public ResponseEntity<Teacher> getCurrentTeacher(Principal principal) {
 
+        String username = principal.getName();
+
+        User user = userRepo.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Teacher teacher = teacherRepo.findByUserId(user.getId())
+                .orElseThrow(() -> new RuntimeException("Teacher not found"));
+
+        return ResponseEntity.ok(teacher);
+    }
     // ✅ GET ALL TEACHERS
     @GetMapping
     public List<Teacher> getAll() {

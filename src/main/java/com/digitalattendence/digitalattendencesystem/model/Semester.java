@@ -1,5 +1,4 @@
 package com.digitalattendence.digitalattendencesystem.model;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -8,14 +7,28 @@ public class Semester {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;   // ✅ MUST be Long
 
-    private Integer number;
+    private Integer number;   // Semester number (1, 2, 3...)
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    // ===== Constructors =====
+    public Semester() {}
 
-    public Integer getNumber() { return number; }
-    public void setNumber(Integer number) { this.number = number; }
+    // ===== Getters & Setters =====
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 }
 

@@ -85,6 +85,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
 }
 
     @Bean
+
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:3000")); // Allow frontend
@@ -97,3 +98,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         return source;
     }
 }
+
+
+
+

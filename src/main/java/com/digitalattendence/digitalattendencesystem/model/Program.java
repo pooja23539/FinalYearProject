@@ -1,21 +1,34 @@
 package com.digitalattendence.digitalattendencesystem.model;
 
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "program")
 public class Program {
+
     @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;   // ✅ MUST BE LONG
 
-        private String name;
+    private String name;
 
-        public Integer getId() { return id; }
-        public void setId(Integer id) { this.id = id; }
+    public Program() {}
 
-        public String getName() { return name; }
-        public void setName(String name) { this.name = name; }
+    public Long getId() {   // ✅ RETURN LONG
+        return id;
     }
 
+    public void setId(Long id) {   // ✅ ACCEPT LONG
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
 
